@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full max-w-[600px] mx-auto px-5 py-10">
+  <div class="flex flex-col w-full max-w-[600px] mx-auto px-5 py-16">
     <div
       v-if="!choosenOption?.id"
       class="flex flex-col items-center justify-center gap-5"
@@ -28,7 +28,7 @@
       v-if="choosenOption"
       variant="flat"
       :absolute="true"
-      class="absolute right-6 bottom-6 md:right-5 md:bottom-5"
+      class="fixed right-4 bottom-4 md:right-5 md:bottom-5"
       @click="() => changeChoosenOption()"
     >
       Voltar
