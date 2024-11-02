@@ -15,7 +15,10 @@
       </VBtn>
     </div>
 
-    <div v-else class="flex flex-col items-center justify-center gap-6">
+    <div
+      v-else
+      class="flex flex-col items-center justify-center gap-6 w-full max-w-[500px] mx-auto"
+    >
       <h2 class="text-3xl md:text-5xl">{{ choosenOption.title }}</h2>
 
       <component :is="choosenOption.component" class="w-full" />
@@ -40,6 +43,7 @@ import { ref } from "vue";
 
 const choosenOption = ref<optionItem | null>(null);
 
+import Clipboard from "./components/Clipboard.vue";
 import LocalStorage from "./components/LocalStorage.vue";
 import SessionStorage from "./components/SessionStorage.vue";
 
@@ -53,6 +57,11 @@ const menuOptions = ref<optionItem[]>([
     id: "session-storage",
     title: "Session Storage",
     component: SessionStorage
+  },
+  {
+    id: "clipboard",
+    title: "Clipboard",
+    component: Clipboard
   }
 ]);
 
