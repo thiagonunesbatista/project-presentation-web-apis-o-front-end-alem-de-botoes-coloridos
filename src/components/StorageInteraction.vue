@@ -33,13 +33,21 @@
         label="O Valor é um Objeto ou Array?"
       />
 
-      <VBtn type="submit">{{ searchActionMessage }}</VBtn>
+      <div class="flex flex-col gap-3">
+        <VBtn type="submit">{{ searchActionMessage }}</VBtn>
 
-      <VBtn @click="openSameUrlOnNewTab" class="mt-4 mb-2">
-        Abrir a mesma página em outra aba
-      </VBtn>
+        <VBtn @click="openSameUrlOnNewTab" class="">
+          Abrir a mesma página em outra aba
+        </VBtn>
 
-      <h2 v-if="searchResult">Resultado da busca: {{ searchResult }}</h2>
+        <VBtn @click="resetSearchForm" class="">
+          Limpar Formulário de Busca
+        </VBtn>
+
+        <h2 class="text-xl" v-if="searchResult">
+          Resultado da busca: {{ searchResult }}
+        </h2>
+      </div>
     </form>
   </div>
 </template>
@@ -87,12 +95,33 @@ const handleRegisterSubmit = (event: Event) => {
       : userRandomText.value;
 
     if (props.storageType === "localStorage") {
-      localStorage.setItem(fieldName.value, valueToSave);
+      writeToLocalStorage(valueToSave);
       return;
     }
 
-    sessionStorage.setItem(fieldName.value, valueToSave);
+    writeToSessionStorage(valueToSave);
   }
+};
+
+const writeToLocalStorage = (valueToSave: string) => {
+  localStorage.setItem(fieldName.value, valueToSave);
+  resetSubmitForm();
+};
+
+const writeToSessionStorage = (valueToSave: string) => {
+  sessionStorage.setItem(fieldName.value, valueToSave);
+  resetSubmitForm();
+};
+
+const resetSubmitForm = () => {
+  needToParseToSaveValue.value = false;
+  userRandomText.value = "";
+  fieldName.value = "";
+};
+
+const resetSearchForm = () => {
+  needToParseToGetSavedValue.value = false;
+  searchFieldName.value = "";
 };
 
 const handleSearchSubmit = (event: Event) => {

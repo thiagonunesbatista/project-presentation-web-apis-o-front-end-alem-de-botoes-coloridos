@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full max-w-[600px] mx-auto px-5">
+  <div class="flex flex-col w-full max-w-[600px] mx-auto px-5 py-10">
     <div
       v-if="!choosenOption?.id"
       class="flex flex-col items-center justify-center gap-5"
@@ -9,8 +9,10 @@
       <VBtn
         v-for="currentOption of menuOptions"
         @click="changeChoosenOption(currentOption)"
-        >{{ currentOption.title }}</VBtn
+        class="w-full max-w-[300px] transition-all hover:scale-110"
       >
+        {{ currentOption.title }}
+      </VBtn>
     </div>
 
     <div v-else class="flex flex-col items-center justify-center gap-6">
