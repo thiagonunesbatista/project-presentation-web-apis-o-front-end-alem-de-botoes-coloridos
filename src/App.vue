@@ -47,6 +47,7 @@ import Clipboard from "./components/Clipboard.vue";
 import LocalStorage from "./components/LocalStorage.vue";
 import SessionStorage from "./components/SessionStorage.vue";
 import Geolocation from "./components/Geolocation.vue";
+import Vibration from "./components/Vibration.vue";
 
 const menuOptions = ref<optionItem[]>([
   {
@@ -68,6 +69,11 @@ const menuOptions = ref<optionItem[]>([
     id: "geolocation",
     title: "Geolocalização",
     component: Geolocation
+  },
+  {
+    id: "vibration",
+    title: "Vibração",
+    component: Vibration
   }
 ]);
 
