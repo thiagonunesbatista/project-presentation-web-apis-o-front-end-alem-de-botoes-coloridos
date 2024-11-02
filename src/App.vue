@@ -46,6 +46,7 @@ const choosenOption = ref<optionItem | null>(null);
 import Clipboard from "./components/Clipboard.vue";
 import LocalStorage from "./components/LocalStorage.vue";
 import SessionStorage from "./components/SessionStorage.vue";
+import Geolocation from "./components/Geolocation.vue";
 
 const menuOptions = ref<optionItem[]>([
   {
@@ -62,6 +63,11 @@ const menuOptions = ref<optionItem[]>([
     id: "clipboard",
     title: "Clipboard",
     component: Clipboard
+  },
+  {
+    id: "geolocation",
+    title: "Geolocalização",
+    component: Geolocation
   }
 ]);
 
