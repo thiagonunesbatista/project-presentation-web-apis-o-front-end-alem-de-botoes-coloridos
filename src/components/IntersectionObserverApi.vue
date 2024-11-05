@@ -65,7 +65,7 @@
     </p>
 
     <VBtn class="w-full" color="#f0f" ref="cool-and-colorful-button">
-      Botão Colorido feito pelo Dev Front-end
+      Botão Colorido feito pelo Dev
     </VBtn>
 
     <p>
