@@ -44,12 +44,13 @@ import { ref } from "vue";
 const choosenOption = ref<optionItem | null>(null);
 
 import Clipboard from "./components/Clipboard.vue";
-import LocalStorage from "./components/LocalStorage.vue";
-import SessionStorage from "./components/SessionStorage.vue";
 import Geolocation from "./components/Geolocation.vue";
+import IntersectionObserverApi from "./components/IntersectionObserverApi.vue";
+import LocalStorage from "./components/LocalStorage.vue";
+import NotificationsDesktop from "./components/NotificationsDesktop.vue";
+import SessionStorage from "./components/SessionStorage.vue";
 import Vibration from "./components/Vibration.vue";
 import WakeLock from "./components/WakeLock.vue";
-import NotificationsDesktop from "./components/NotificationsDesktop.vue";
 import WebSpeech from "./components/WebSpeech.vue";
 
 const menuOptions = ref<optionItem[]>([
@@ -92,6 +93,11 @@ const menuOptions = ref<optionItem[]>([
     id: "web-speech",
     title: "WebSpeech",
     component: WebSpeech
+  },
+  {
+    id: "intersection-observer",
+    title: "Intersection Observer",
+    component: IntersectionObserverApi
   }
 ]);
 
