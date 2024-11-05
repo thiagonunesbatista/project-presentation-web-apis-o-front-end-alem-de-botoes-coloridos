@@ -49,6 +49,7 @@ import SessionStorage from "./components/SessionStorage.vue";
 import Geolocation from "./components/Geolocation.vue";
 import Vibration from "./components/Vibration.vue";
 import WakeLock from "./components/WakeLock.vue";
+import Notifications from "./components/Notifications.vue";
 
 const menuOptions = ref<optionItem[]>([
   {
@@ -80,6 +81,11 @@ const menuOptions = ref<optionItem[]>([
     id: "wake-lock",
     title: "Wake Lock",
     component: WakeLock
+  },
+  {
+    id: "notifications",
+    title: "Notifications API",
+    component: Notifications
   }
 ]);
 
