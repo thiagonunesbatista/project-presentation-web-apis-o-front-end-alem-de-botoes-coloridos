@@ -16,11 +16,6 @@
       class="w-full"
     />
 
-    <VCheckbox
-      v-model="vibrateNotification"
-      label="Ativar vibração ao notificar?"
-    />
-
     <VBtn class="w-full" @click="handleNotificationSubmit">
       Enviar Notificação
     </VBtn>
@@ -37,12 +32,9 @@ const inputNotification = ref("");
 
 const notificationIcon = ref("");
 
-const vibrateNotification = ref(false);
-
 const askNotificationPermission = async () => {
   try {
-    // @ts-ignore
-    const notificationResponse = await Notification.requestPermission();
+    await Notification.requestPermission();
 
     sendNotification("Permissão de notificação concedida!");
   } catch (error) {
@@ -61,8 +53,6 @@ const sendNotification = (notificationText?: string) => {
     const notificationResponse = new Notification(
       notificationText || inputNotification.value,
       {
-        // @ts-ignore
-        vibrate: vibrateNotification.value,
         ...(notificationIcon.value && { icon: notificationIcon.value })
       }
     );

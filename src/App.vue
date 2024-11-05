@@ -49,7 +49,8 @@ import SessionStorage from "./components/SessionStorage.vue";
 import Geolocation from "./components/Geolocation.vue";
 import Vibration from "./components/Vibration.vue";
 import WakeLock from "./components/WakeLock.vue";
-import Notifications from "./components/Notifications.vue";
+import NotificationsDesktop from "./components/NotificationsDesktop.vue";
+import WebSpeech from "./components/WebSpeech.vue";
 
 const menuOptions = ref<optionItem[]>([
   {
@@ -84,8 +85,13 @@ const menuOptions = ref<optionItem[]>([
   },
   {
     id: "notifications",
-    title: "Notifications API",
-    component: Notifications
+    title: "Notifications API (Desktop)",
+    component: NotificationsDesktop
+  },
+  {
+    id: "web-speech",
+    title: "WebSpeech",
+    component: WebSpeech
   }
 ]);
 
