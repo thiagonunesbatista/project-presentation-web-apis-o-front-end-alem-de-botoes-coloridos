@@ -17,6 +17,9 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
+
 const wakeLockInstance = ref<WakeLockSentinel | null>(null);
 
 const hasWakeLockSupport = computed(() => {
@@ -26,8 +29,17 @@ const hasWakeLockSupport = computed(() => {
 const handleWakeLock = async () => {
   try {
     wakeLockInstance.value = await navigator.wakeLock.request("screen");
+
+    toast("Wake Lock Ativado", {
+      autoClose: 2000,
+      type: "success"
+    });
   } catch (error) {
     console.log(error);
+    toast("Erro ao utilizar o Wake Lock", {
+      autoClose: 2000,
+      type: "error"
+    });
   }
 };
 
@@ -35,5 +47,10 @@ const removeWakeLock = async () => {
   await wakeLockInstance.value?.release();
 
   wakeLockInstance.value = null;
+
+  toast("Wake Lock Desativado", {
+    autoClose: 2000,
+    type: "success"
+  });
 };
 </script>
