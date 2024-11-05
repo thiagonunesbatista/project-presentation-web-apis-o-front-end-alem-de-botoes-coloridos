@@ -48,6 +48,7 @@ import LocalStorage from "./components/LocalStorage.vue";
 import SessionStorage from "./components/SessionStorage.vue";
 import Geolocation from "./components/Geolocation.vue";
 import Vibration from "./components/Vibration.vue";
+import WakeLock from "./components/WakeLock.vue";
 
 const menuOptions = ref<optionItem[]>([
   {
@@ -74,6 +75,11 @@ const menuOptions = ref<optionItem[]>([
     id: "vibration",
     title: "Vibração",
     component: Vibration
+  },
+  {
+    id: "wake-lock",
+    title: "Wake Lock",
+    component: WakeLock
   }
 ]);
 
