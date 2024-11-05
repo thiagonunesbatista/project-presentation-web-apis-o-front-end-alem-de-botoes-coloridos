@@ -41,6 +41,7 @@ const vibrateNotification = ref(false);
 
 const askNotificationPermission = async () => {
   try {
+    // @ts-ignore
     const notificationResponse = await Notification.requestPermission();
 
     sendNotification("Permissão de notificação concedida!");
@@ -60,6 +61,7 @@ const sendNotification = (notificationText?: string) => {
     const notificationResponse = new Notification(
       notificationText || inputNotification.value,
       {
+        // @ts-ignore
         vibrate: vibrateNotification.value,
         ...(notificationIcon.value && { icon: notificationIcon.value })
       }
