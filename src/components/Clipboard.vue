@@ -30,9 +30,7 @@ import "vue3-toastify/dist/index.css";
 const textToCopy = ref("");
 const textReadFromClipboard = ref("");
 
-const handleCopyText = async (event: Event) => {
-  event.preventDefault();
-
+const handleCopyText = async () => {
   if (textToCopy.value.length > 0) {
     await navigator.clipboard.writeText(textToCopy.value);
 
