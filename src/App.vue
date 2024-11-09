@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import type { Component } from "vue";
 
-import { ref } from "vue";
+import { shallowRef, ref, markRaw } from "vue";
 
 const choosenOption = ref<optionItem | null>(null);
 
@@ -53,51 +53,51 @@ import Vibration from "./components/Vibration.vue";
 import WakeLock from "./components/WakeLock.vue";
 import WebSpeech from "./components/WebSpeech.vue";
 
-const menuOptions = ref<optionItem[]>([
+const menuOptions = shallowRef<optionItem[]>([
   {
     id: "local-storage",
     title: "Local Storage",
-    component: LocalStorage
+    component: markRaw(LocalStorage)
   },
   {
     id: "session-storage",
     title: "Session Storage",
-    component: SessionStorage
+    component: markRaw(SessionStorage)
   },
   {
     id: "clipboard",
     title: "Clipboard",
-    component: Clipboard
+    component: markRaw(Clipboard)
   },
   {
     id: "geolocation",
     title: "Geolocalização",
-    component: Geolocation
+    component: markRaw(Geolocation)
   },
   {
     id: "vibration",
     title: "Vibração",
-    component: Vibration
+    component: markRaw(Vibration)
   },
   {
     id: "wake-lock",
     title: "Wake Lock",
-    component: WakeLock
+    component: markRaw(WakeLock)
   },
   {
     id: "notifications",
     title: "Notifications API (Desktop)",
-    component: NotificationsDesktop
+    component: markRaw(NotificationsDesktop)
   },
   {
     id: "web-speech",
     title: "WebSpeech",
-    component: WebSpeech
+    component: markRaw(WebSpeech)
   },
   {
     id: "intersection-observer",
     title: "Intersection Observer",
-    component: IntersectionObserverApi
+    component: markRaw(IntersectionObserverApi)
   }
 ]);
 
