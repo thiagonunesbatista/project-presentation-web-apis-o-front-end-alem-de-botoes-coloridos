@@ -136,8 +136,6 @@ onMounted(() => {
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
-        console.log("MUDOU");
-        console.log(entry.isIntersecting);
         isVisible.value = entry.isIntersecting;
       });
     },
